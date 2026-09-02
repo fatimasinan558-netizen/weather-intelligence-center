@@ -1,4 +1,5 @@
 from api_weather import fetch_weather
+from storage import save_snapshot
 
 if __name__ == "__main__":
     city = input("اكتب اسم المدينة: ")
@@ -12,3 +13,5 @@ if __name__ == "__main__":
         print(f"الرطوبة: {weather_data['humidity']}%")
         print(f"سرعة الرياح: {weather_data['wind_speed']} m/s")
         print(f"الحالة: {weather_data['condition']}")
+
+        save_snapshot(weather_data)

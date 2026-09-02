@@ -1,0 +1,20 @@
+[
+  {
+    "city": "بغداد",
+    "timestamp": "2026-09-03 01:21:54",
+    "temperature": 32.95,
+    "feels_like": 31.55,
+    "humidity": 27,
+    "wind_speed": 5.14,
+    "condition": "سماء صافية"
+  },
+  {
+    "city": "أربيل",
+    "timestamp": "2026-09-03 01:23:08",
+    "temperature": 25.9,
+    "feels_like": 25.25,
+    "humidity": 27,
+    "wind_speed": 0,
+    "condition": "سماء صافية"
+  }
+]
