@@ -34,21 +34,26 @@ def calculate_statistics(city_name):
     }
 
 
-def calculate_temperature_trend(city_name):
+def calculate_temperature_trend(city_name, n=3):
     """
-    تحدد اتجاه درجة الحرارة بناءً على السجلات المحفوظة.
+    تحدد اتجاه درجة الحرارة اعتمادًا على آخر N سجلات.
     """
     snapshots = get_snapshots_by_city(city_name)
 
     if len(snapshots) < 2:
         return "بيانات غير كافية"
 
-    previous_temperature = snapshots[-2]["temperature"]
-    latest_temperature = snapshots[-1]["temperature"]
+    recent_snapshots = snapshots[-n:]
 
-    if latest_temperature > previous_temperature:
+    if len(recent_snapshots) < 2:
+        return "بيانات غير كافية"
+
+    first_temperature = recent_snapshots[0]["temperature"]
+    latest_temperature = recent_snapshots[-1]["temperature"]
+
+    if latest_temperature > first_temperature:
         return "صاعد"
-    elif latest_temperature < previous_temperature:
+    elif latest_temperature < first_temperature:
         return "نازل"
     else:
         return "مستقر"
